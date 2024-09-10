@@ -30,4 +30,14 @@ function Home() {
   );
 }
 
+const fetchSoftware = async () => {
+    const response = await fetch('http://localhost:8888/wordpress/wp-json/wp/v2/software', {
+      headers: {
+        Authorization: `Bearer YOUR_JWT_TOKEN`,
+      },
+    });
+    const data = await response.json();
+    setSoftwareList(data);
+  };
+
 export default Home;
